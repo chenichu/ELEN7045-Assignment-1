@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package dodge.game;
+package dodge_game;
 
 import javax.swing.JFrame;
 
