@@ -11,5 +11,17 @@ package dodge_game;
  * @author Patrick Chen
  */
 public class rainDrop {
+    //rain drop states
+    int x, y, dy;
+    
+    //contstructor
+    public void raindDrop(){
+        
+    }
+    
+    //rain drop movement behaviour
+    public void move(){
+        
+    }
     
 }

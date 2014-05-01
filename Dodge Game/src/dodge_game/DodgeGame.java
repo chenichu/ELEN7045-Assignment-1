@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * file:            Frame.java (game runs under this class)
+ * file:            DodgeGame.java (game runs under this class)
  * @version         0.1
  * @author          I-Chuan (Patrick) Chen
  * student No      0708886F

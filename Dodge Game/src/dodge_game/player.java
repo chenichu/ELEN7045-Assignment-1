@@ -11,5 +11,18 @@ package dodge_game;
  * @author Patrick Chen
  */
 public class player {
+    //player states
+    int x, dx,y;
+    
+    //constructor
+    public void player(){
+        
+    }
+    
+    //this function controls the player movement behaviour
+    public void move(){
+        
+    }
+    
     
 }
