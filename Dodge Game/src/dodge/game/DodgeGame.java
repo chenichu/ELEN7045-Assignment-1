@@ -6,10 +6,18 @@
 
 package dodge.game;
 
+import javax.swing.JFrame;
+
 /**
  *
- * @author Patrick Chen
+ * file:            Frame.java (game runs under this class)
+ * @version         0.1
+ * @author          I-Chuan (Patrick) Chen
+ * student No      0708886F
+ * course code     ELEN 7045
+ * 
  */
+
 public class DodgeGame {
 
     /**
@@ -17,6 +25,11 @@ public class DodgeGame {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        JFrame frame = new JFrame("Dodge Game");
+        
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setSize(820,472);
+        frame.setVisible(true);
     }
     
 }
