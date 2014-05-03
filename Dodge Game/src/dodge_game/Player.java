@@ -6,6 +6,10 @@
 
 package dodge_game;
 
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
+
 /**
  *
  * file:            Player.java (player and its responsibility)
@@ -19,16 +23,56 @@ package dodge_game;
 public class Player {
     //player states
     int x, dx,y;
+    Image playerImage;
     
     //constructor
-    public void player(){
+    public Player(){
+        ImageIcon i = new ImageIcon(getClass().getResource("/Images/player1.png"));
+        playerImage = i.getImage();
         
+        x=100;
+        y=100;
     }
     
     //this function controls the player movement behaviour
     public void move(){
-        
+        x = x + dx;
     }
     
+    public int getX(){
+        return x;
+    }
+    
+    public int getY(){
+        return y;
+    } 
+    
+    public Image getImage(){
+        return playerImage;
+    }  
+    
+    public void keyPressed(KeyEvent e){
+        int key = e.getKeyCode();
+        
+        if(key == KeyEvent.VK_LEFT);
+        dx = -1;
+        
+        if (key == KeyEvent.VK_RIGHT)
+            dx =1;
+        
+        e.consume();
+    }
+    
+    public void keyReleased(KeyEvent e){
+        int key = e.getKeyCode();
+        
+        if(key == KeyEvent.VK_LEFT)
+            dx = 0;
+        
+        if (key == KeyEvent.VK_RIGHT)
+            dx = 0;
+        
+        e.consume();
+    }
     
 }
