@@ -8,9 +8,15 @@ package dodge_game;
 
 /**
  *
- * @author Patrick Chen
+ * file:            Player.java (player and its responsibility)
+ * @version         0.1
+ * @author          I-Chuan (Patrick) Chen
+ * student No      0708886F
+ * course code     ELEN 7045
+ * 
  */
-public class player {
+
+public class Player {
     //player states
     int x, dx,y;
     

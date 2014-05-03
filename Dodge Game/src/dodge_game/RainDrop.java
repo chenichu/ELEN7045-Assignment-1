@@ -10,7 +10,7 @@ package dodge_game;
  *
  * @author Patrick Chen
  */
-public class rainDrop {
+public class RainDrop {
     //rain drop states
     int x, y, dy;
     
