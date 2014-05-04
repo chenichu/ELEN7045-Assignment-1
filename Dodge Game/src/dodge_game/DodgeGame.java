@@ -26,7 +26,7 @@ public class DodgeGame {
     public static void main(String[] args) {
         // TODO code application logic here
         JFrame frame = new JFrame("Dodge Game");
-         frame.add(new GameEngine());
+        frame.add(new GameEngine());
         
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800,500);
