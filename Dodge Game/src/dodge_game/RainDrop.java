@@ -7,6 +7,7 @@
 package dodge_game;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
@@ -53,6 +54,10 @@ public class RainDrop {
             visible = false;
         }
         y = y - dy;
+    }
+    
+    public Rectangle getBounds(){
+        return new Rectangle(x,y,15,15);
     }
     
 }

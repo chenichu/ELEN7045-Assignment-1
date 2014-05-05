@@ -7,6 +7,7 @@
 package dodge_game;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
@@ -30,8 +31,8 @@ public class Player {
         ImageIcon i = new ImageIcon(getClass().getResource("/Images/player1.png"));
         playerImage = i.getImage();
         
-        x=100;
-        y=100;
+        x=0;
+        y=360;
     }
     
     //this function controls the player movement behaviour
@@ -73,6 +74,10 @@ public class Player {
             dx = 0;
         
         e.consume();
+    }
+    
+    public Rectangle getBounds(){
+        return new Rectangle(x,y,53,85);
     }
     
 }
