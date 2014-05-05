@@ -17,6 +17,10 @@ public class FallingObjects {
     static ArrayList fallingObjects;
     int minlFallingRange = 0;
     int maxFallingRange = 700; //must be less of image size
+    int counter = 0;
+    int minInterval = 40;
+    int maxInterval = 80;
+    int nextOccurance = 0;
     
     public FallingObjects(){
         fallingObjects = new ArrayList();
@@ -31,5 +35,27 @@ public class FallingObjects {
     }
     public static ArrayList GetFallingObjects(){
         return fallingObjects;
+    }
+    
+    public void SpawningFallingObject(){
+        if(counter>=nextOccurance){
+            AddFallingObjects();
+            counter = 0;
+            nextOccurance = minInterval + (int)(Math.random() * ((maxInterval - minInterval) + 1));
+        }
+        else{
+            counter++;
+        }
+    }
+    
+    public void MoveandRemoveFallingObjects(){
+        for (int i=0; i < fallingObjects.size();i++)
+        {
+             RainDrop rainDrop = (RainDrop) fallingObjects.get(i);
+            if(rainDrop.getVisible()==true)
+                rainDrop.move(-1);
+            else
+               fallingObjects.remove(i);
+        }
     }
 }

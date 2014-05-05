@@ -26,10 +26,8 @@ import javax.swing.Timer;
 public class GameEngine extends JPanel implements ActionListener {
     Player player1;
     FallingObjects fallingObjects;
-    int counter = 0;
-    int minInterval = 40;
-    int maxInterval = 80;
-    int nextOccurance = 0;
+    CollisionDetection collisionDetection;
+    GameRendering gameRendering;
     Image backgroundImage;
     Timer time;
     
@@ -41,8 +39,12 @@ public class GameEngine extends JPanel implements ActionListener {
         
         fallingObjects = new FallingObjects();
         
+        collisionDetection = new CollisionDetection();
+        
+        gameRendering =  new GameRendering();
+        
         //add key listener
-        addKeyListener(new AL());
+        addKeyListener(new KeyListener(player1));
         
         //focus on panel
         setFocusable(true);
@@ -58,27 +60,11 @@ public class GameEngine extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         
-        checkCollision();
+        gameLost = collisionDetection.checkCollision(player1,fallingObjects);
         
-        if(counter>=nextOccurance){
-            fallingObjects.AddFallingObjects();
-            counter = 0;
-            nextOccurance = minInterval + (int)(Math.random() * ((maxInterval - minInterval) + 1));
-        }
-        else{
-            counter++;
-        }
+        fallingObjects.SpawningFallingObject();
         
-       for (int i=0; i < fallingObjects.GetFallingObjects().size();i++)
-        {
-             RainDrop rainDrop = (RainDrop) fallingObjects.GetFallingObjects().get(i);
-            if(rainDrop.getVisible()==true)
-                rainDrop.move(-1);
-            else
-               fallingObjects.GetFallingObjects().remove(i);
-        }
-        
-        
+        fallingObjects.MoveandRemoveFallingObjects();      
         
         player1.move();
         
@@ -90,52 +76,8 @@ public class GameEngine extends JPanel implements ActionListener {
         if (gameLost) {
             System.exit(0);
         }
-        
+              
         super.paint(g);
-        Graphics2D g2d = (Graphics2D) g;
-        
-        g2d.drawImage(backgroundImage, 0, 0,null);
-        g2d.drawImage(player1.getImage(), player1.getX(), player1.getY(), null);
-        
-        //ArrayList fallingObjects = traffic.getLeftTraffic();
-        for (int i=0; i < fallingObjects.GetFallingObjects().size();i++)
-        {
-            RainDrop rainDrop = (RainDrop) fallingObjects.GetFallingObjects().get(i);
-            g2d.drawImage(rainDrop.getImage(), rainDrop.getX(), rainDrop.getY(),null);
-        }
-    }
-    
-     public void checkCollision(){
-//        Rectangle r1 = 
-//        Rectangle r2 = 
-        Rectangle rPlayer = player1.getBounds();
-        
-         ArrayList localFallingObjects = fallingObjects.GetFallingObjects();
-        for (int i=0; i < localFallingObjects.size();i++)
-        {
-            RainDrop rainDrop = (RainDrop) localFallingObjects.get(i);
-            Rectangle rRainDrop = rainDrop.getBounds();
-            
-            if(rPlayer.intersects(rRainDrop)){
-                gameLost = true;
-                break;
-            }
-        }
-    }
-    
-    private class AL extends KeyAdapter{
-
-        @Override
-        public void keyReleased(KeyEvent e){
-            player1.keyReleased(e);
-        }
-        
-
-        @Override
-        public void keyPressed(KeyEvent e){
-            player1.keyPressed(e);
-        }
-    }
-    
-    
+        gameRendering.renderImages(g, backgroundImage, player1, fallingObjects);
+    } 
 }
