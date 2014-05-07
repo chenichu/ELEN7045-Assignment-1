@@ -40,14 +40,26 @@ public class Player {
         x = x + dx;
     }
     
+    /**
+     * 
+     * @return x co-ordinates of player
+     */
     public int getX(){
         return x;
     }
     
+    /**
+     * 
+     * @return y co-ordinates of player
+     */
     public int getY(){
         return y;
     } 
     
+    /**
+     * 
+     * @return image of player
+     */
     public Image getImage(){
         return playerImage;
     }  

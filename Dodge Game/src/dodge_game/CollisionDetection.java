@@ -11,7 +11,12 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Patrick Chen
+ * file:            CollisionDetection.java (check if objects collide)
+ * @version         0.1
+ * @author          I-Chuan (Patrick) Chen
+ * student No      0708886F
+ * course code     ELEN 7045
+ * 
  */
 public class CollisionDetection {
     
@@ -19,6 +24,10 @@ public class CollisionDetection {
         
     }
     
+    /**
+     * 
+     * @return true if objects collide else false
+     */
     public Boolean checkCollision(Player player, FallingObjects fallingObjects){
         Rectangle rPlayer = player.getBounds();
         

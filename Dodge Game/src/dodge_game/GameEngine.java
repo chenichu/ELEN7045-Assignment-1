@@ -21,7 +21,12 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Patrick Chen
+ * file:            GameEngine.java (main game loop)
+ * @version         0.1
+ * @author          I-Chuan (Patrick) Chen
+ * student No      0708886F
+ * course code     ELEN 7045
+ * 
  */
 public class GameEngine extends JPanel implements ActionListener {
     Player player1;

@@ -13,9 +13,14 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Patrick Chen
+ * file:            RainDrop.java (raindrop and its responsibility)
+ * @version         0.1
+ * @author          I-Chuan (Patrick) Chen
+ * student No      0708886F
+ * course code     ELEN 7045
+ * 
  */
-public class RainDrop {
+public class RainDrop extends FallingObject{
     //rain drop states
     int x, y, dy;
     
@@ -32,23 +37,44 @@ public class RainDrop {
         rainDropImage = l.getImage();
     }
     
+    /**
+     * 
+     * @return x co-ordinates of raindrop
+     */
+    @Override
     public int getX(){
         return x;
     }
     
+    /**
+     * 
+     * @return y co-ordinates of raindrop
+     */
+    @Override
     public int getY(){
         return y;
     }
     
+    /**
+     * 
+     * @return raindrop visibility
+     */
+    @Override
     public boolean getVisible(){
         return visible;
     }
     
+    /**
+     * 
+     * @return image of raindrop
+     */
+    @Override
     public Image getImage(){
         return rainDropImage;
     }
     
     //rain drop movement behaviour
+    @Override
     public void move(int dy){
         if(y>500){
             visible = false;
@@ -56,6 +82,7 @@ public class RainDrop {
         y = y - dy;
     }
     
+    @Override
     public Rectangle getBounds(){
         return new Rectangle(x,y,15,15);
     }

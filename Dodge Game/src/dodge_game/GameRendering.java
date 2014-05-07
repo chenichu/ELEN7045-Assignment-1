@@ -12,7 +12,12 @@ import java.awt.Image;
 
 /**
  *
- * @author Patrick Chen
+ * file:            GameRendering.java (responsible for drawing on java frame)
+ * @version         0.1
+ * @author          I-Chuan (Patrick) Chen
+ * student No      0708886F
+ * course code     ELEN 7045
+ * 
  */
 public class GameRendering {
     public GameRendering(){
